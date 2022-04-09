@@ -146,7 +146,7 @@ public class Assignment10 {
             }
         }
 
-        //Check to see if the final will replace either test 1 or test 2 (Prereq: lower test 1 or test 2 grade AND didnt cheat.)
+        //Check to see if the final will replace either test 1 or test 2 (Prereq: lower test 1 or test 2 grade AND didnt cheat AND they took all 3 tests)
         if(!cheated && (tookTest1 && tookTest2 && tookFinal)){ //if they didnt cheat
             if(test1Grade < test2Grade){ //if test 1 is the lowest test grade.
                 if(test1Grade < finalTestGrade){ //if test 1 is lower than the final
@@ -161,6 +161,5 @@ public class Assignment10 {
 
 
         return  (test1Grade + test2Grade + finalTestGrade)/3;
-
     }
 }
