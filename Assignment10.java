@@ -99,6 +99,10 @@ public class Assignment10 {
         double test1Grade = 0;
         double test2Grade = 0;
         double finalTestGrade = 0;
+
+        boolean tookTest1 = false; //If they took either test.
+        boolean tookTest2 = false;
+
         //Only 3 tests, so we do not have to use a loop. (but we can if we really wanted to)
         if(!tokens[14].trim().isEmpty()){ //i hardcode 14 here so that if we're missing a grade, we will go out of bounds and therefore trigger an exception.
             finalTestGrade = Double.parseDouble(tokens[14]);
@@ -111,6 +115,7 @@ public class Assignment10 {
         }
 
         if(!tokens[13].trim().isEmpty()){
+            tookTest2 = true;
             test2Grade = Double.parseDouble(tokens[13]);
             if(test2Grade == -1){
                 cheated = true;
@@ -125,6 +130,7 @@ public class Assignment10 {
         }
 
         if(!tokens[12].trim().isEmpty()){
+            tookTest1 = true;
             test1Grade = Double.parseDouble(tokens[12]);
             if(test1Grade == -1){
                 cheated = true;
@@ -139,7 +145,7 @@ public class Assignment10 {
         }
 
         //Check to see if the final will replace either test 1 or test 2 (Prereq: lower test 1 or test 2 grade AND didnt cheat.)
-        if(!cheated){ //if they didnt cheat
+        if(!cheated && (tookTest1 && tookTest2)){ //if they didnt cheat
             if(test1Grade < test2Grade){ //if test 1 is the lowest test grade.
                 if(test1Grade < finalTestGrade){ //if test 1 is lower than the final
                     test1Grade = finalTestGrade; //replace test 1 with the final
