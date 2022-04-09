@@ -109,7 +109,6 @@ public class Assignment10 {
             if(Double.parseDouble(tokens[i]) == -1){
                 cheated = true;
                 tokens[i] = "0";
-                break;
             }
         }
 
