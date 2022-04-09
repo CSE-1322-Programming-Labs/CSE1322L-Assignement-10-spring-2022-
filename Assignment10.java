@@ -104,14 +104,19 @@ public class Assignment10 {
         boolean tookTest2 = false;
         boolean tookFinal = false;
 
+        //Check if the student cheated at all and if they did, they get a zero on that grade.
+        for(int i=12;i<15;i++){
+            if(Double.parseDouble(tokens[i]) == -1){
+                cheated = true;
+                tokens[i] = "0";
+                break;
+            }
+        }
+
         //Only 3 tests, so we do not have to use a loop. (but we can if we really wanted to)
         if(!tokens[14].trim().isEmpty()){ //i hardcode 14 here so that if we're missing a grade, we will go out of bounds and therefore trigger an exception.
             tookFinal = true;
             finalTestGrade = Double.parseDouble(tokens[14]);
-            if(finalTestGrade == -1){ //if they cheated, they get a 0 and no replacement.
-                cheated = true;
-                finalTestGrade = 0;
-            }
         }else{//They missed the test (or have no value for that test)
             finalTestGrade = 0;
         }
@@ -119,10 +124,6 @@ public class Assignment10 {
         if(!tokens[13].trim().isEmpty()){
             tookTest2 = true;
             test2Grade = Double.parseDouble(tokens[13]);
-            if(test2Grade == -1){
-                cheated = true;
-                test2Grade = 0;
-            }
         }else{ //They missed test 2
             if(!cheated){ //If they did not cheat, the final will replace the test 2 grade.
                 test2Grade = finalTestGrade;
@@ -134,10 +135,6 @@ public class Assignment10 {
         if(!tokens[12].trim().isEmpty()){
             tookTest1 = true;
             test1Grade = Double.parseDouble(tokens[12]);
-            if(test1Grade == -1){
-                cheated = true;
-                test1Grade = 0;
-            }
         }else{ //They missed test 2
             if(!cheated){ //If they did not cheat, the final will replace the test 2 grade.
                 test1Grade = finalTestGrade;
