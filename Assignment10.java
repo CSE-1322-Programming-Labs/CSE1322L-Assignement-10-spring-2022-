@@ -19,7 +19,7 @@ public class Assignment10 {
             File errorGradesFile = new File("E:\\Java\\Labs Java\\TestIO\\src\\textFiles\\ErrorGradesFile.txt");
 
             //start iterating through the raw files and put them to the finalgradesfile and errorgradesfile STEP 4
-            File rawGrades = new File("E:\\Java\\Labs Java\\TestIO\\src\\textFiles\\rawGrades.txt");
+            File rawGrades = new File("E:\\Java\\Labs Java\\TestIO\\src\\textFiles\\"+fileName);
             Scanner input = new Scanner(rawGrades);
 
             finalGradePW = new PrintWriter(finalGradesFile);
